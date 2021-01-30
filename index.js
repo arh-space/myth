@@ -99,14 +99,14 @@ const { limit } = require('./database/menu/limit')
 // Load Vcard Contact
 const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
             + 'VERSION:3.0\n' 
-            + 'FN:Nazwa🖤\n' // full name
-            + 'ORG:Owner Bot;\n' // the organization of the contact
-            + 'TEL;type=CELL;type=VOICE;waid=12542123926:+1 (254) 212-3926\n' // WhatsApp ID + phone number
+            + 'FN:Rawrrr 🖤\n' // full name
+            + 'ORG:Owner MYTH Bot;\n' // the organization of the contact
+            + 'TEL;type=CELL;type=VOICE;waid=447451207704:+44 7451 207704\n' // WhatsApp ID + phone number
             + 'END:VCARD'
 prefix = '.'
 blocked = []
 limitawal = '20'
-cr = '*Verified*'
+cr = '*【MYTH BOT】BOT SUDAH TERVERIFIKASI ✅*'
 
 // Functions
 const getLevelingXp = (userId) => {
@@ -376,15 +376,15 @@ async function starts() {
                         const q = args.join(' ')
 
 			mess = {
-				wait: '⌛ Sedang di Prosess ⌛',
-				success: '✔️ Berhasil ✔️',
-                                levelon: '❬ ✔ ❭ *enable leveling*',
-				leveloff: ' ❬ X ❭  *disable leveling*',
-				levelnoton: '❬ X ❭ *leveling not aktif*',
-				levelnol: '*LEVEL KAKAK MASIH* 0 °-°',
+				wait: '「 WAIT 」Sabar ya lagi di Prosess~ ⌛',
+				success: '「 SUCCESS 」 Oke, udah~ ✔️',
+                                levelon: '❬ ✔ ❭ *Enable Leveling*',
+				leveloff: ' ❬ X ❭  *Disable Leveling*',
+				levelnoton: '❬ X ❭ *Leveling belum di Aktifkan*',
+				levelnol: '「 INFO 」Hai! Level Kamu masih *0* , Silahkan Leveling terlebih dahulu °-°',
 				error: {
-					stick: '[❗] Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker ❌',
-					Iv: '❌ Link tidak valid ❌'
+					stick: '「 ERROR ❗ 」 Gagal, Maaf terjadi kesalahan saat mengkonversi gambar ke sticker, coba lagi yaa~',
+					Iv: '「 ERROR ❗ 」Maaf, Link tidak valid atau System Error :<'
 				},
 				only: {
 					group: '[❗] Perintah ini hanya bisa di gunakan dalam group! ❌',
@@ -392,14 +392,14 @@ async function starts() {
 					ownerB: '[❗] Perintah ini hanya bisa di gunakan oleh owner bot! ❌',
 					admin: '[❗] Perintah ini hanya bisa di gunakan oleh admin group! ❌',
 					Badmin: '[❗] Perintah ini hanya bisa di gunakan ketika bot menjadi admin! ❌',
-                                        daftarB: `──「 BELUM REGISTER 」──\nHalo kak !\nKamu belum Register nih, register dulu yuk... \n\nCommand : ${prefix}register nama|umur\nContoh : ${prefix}register Nazwa|16`,
+                                        daftarB: `──「 BELUM REGISTER 」──\nHalo kak!\nKamu belum terdaftar sebagai User MYTH Bot , Silahkan Register dulu ya... \n\nCommand : ${prefix}register Nama | Umur\nContoh : ${prefix}register Rawrrr | 16`,
 				}
 			}
-    			const apakah = ['Ya','Tidak']
-        		const bisakah = ['Bisa','Tidak Bisa']
+    			const apakah = ['Ya','Bisa Jadi','Coba Lagi','Tidak']
+        		const bisakah = ['Bisa','Coba Lagi','Tidak Bisa']
 		        const kapankah = ['Hari Lagi','Minggu Lagi','Bulan Lagi','Tahun Lagi']
 			const botNumber = client.user.jid
-			const ownerNumber = ["12542123926@s.whatsapp.net"] // replace this with your number
+			const ownerNumber = ["447451207704@s.whatsapp.net"] // replace this with your number
 			const nomorOwner = [ownerNumber]
 			const isGroup = from.endsWith('@g.us')
 			const totalchat = await client.chats.all()
@@ -416,15 +416,15 @@ async function starts() {
 			const isSimi = isGroup ? samih.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
                         const isLevelingOn = isGroup ? _leveling.includes(groupId) : false
-                        const NomerOwner = '12542123926@s.whatsapp.net'
+                        const NomerOwner = '447451207704@s.whatsapp.net'
                         const isEventon = isGroup ? event.includes(from) : false
                         const isRegister = checkRegisteredUser(sender)
                         pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
 
                         // Options
-                        const botName = 'BOT_NAME'
-                        const ownerName = 'OWNER_NAME'
-                        const BarBarKey = 'YOUR_APIKEY'
+                        const botName = 'MYTH BOT'
+                        const ownerName = 'Rawrrr'
+                        const BarBarKey = 'Nkwp9oR7Eg9yyKbejBpm'
 
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
@@ -918,7 +918,7 @@ async function starts() {
 					client.sendMessage(from, '10 Detik lagi', text) // ur cods
 					}, 0) // 1000 = 1s,
 					break
-				/*case 'semoji':
+				case 'semoji':
 					if (args.length < 1) return reply('emojinya mana um?')
                                         if (!isRegister) return reply(mess.only.daftarB)
 					ranp = getRandom('.png')
@@ -933,7 +933,7 @@ async function starts() {
 						client.sendMessage(from, buffer, sticker)
 						fs.unlinkSync(rano)
 					})
-					break*/
+					break
 				case 'nulis':
 				case 'tulis':
 					if (args.length < 1) return reply('Yang mau di tulis apaan?')
@@ -1381,7 +1381,7 @@ async function starts() {
 					} else {
 						mentions(`Perintah di terima, mengeluarkan : @${mentioned[0].split('@')[0]}`, mentioned, true)
 						client.groupRemove(from, mentioned)
-					client.sendMessage(mentioned, 'yahaha Lu kekick😂', text)
+					client.sendMessage(mentioned, 'Yahaha Lu kekick😂', text)
 					}
 					break
 				case 'exe':
@@ -2022,12 +2022,12 @@ async function starts() {
                                         client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
                                         await limitAdd(sender)
                                         break
-                                /*case 'jadwaltvnow':  
+                                case 'jadwaltvnow':  
 				if (!isRegister) return reply(mess.only.daftarB)
                                reply(mess.wait)
 		               anu = await fetchJson(`http://api-melodicxt.herokuapp.com/api/jadwaltvnow?&apiKey=administrator`, {method: 'get'})
 			       reply(anu.result.jadwalTV)
-					break*/
+					break
                                 case 'afk':
                                         tels = body.slice(4)
                                         if (args.length < 1) return reply('kakak afk karena apa?')
@@ -2403,7 +2403,7 @@ async function starts() {
                                         }
                                         await limitAdd(sender)
                                         break
-                                 /*case 'setname':
+                                 case 'setname':
                                         if (!isGroup) return reply(ind.groupo())
 			                if (!isGroupAdmins) return reply(ind.admin())
 			                if (!isBotGroupAdmins) return reply(ind.badmin())
@@ -2416,7 +2416,7 @@ async function starts() {
 			         	if (!isBotGroupAdmins) return reply(ind.badmin())
                                         client.groupUpdateDescription(from, `${body.slice(9)}`)
                                         client.sendMessage(from, 'Succes, Ganti Deskripsi Grup', text, {quoted: mek})
-					break*/
+					break
                                 case 'translate':
                                         aruga = body.slice(10)
                                         lang = aruga.split("|")[0];
